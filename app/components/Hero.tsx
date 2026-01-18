@@ -2,27 +2,30 @@ import Link from 'next/link';
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-24 pb-16 lg:pt-32 lg:pb-24">
-      {/* Decorative background element */}
-      <div className="absolute top-0 right-0 -z-10 h-full w-1/2 bg-slate-50 [mask-image:linear-gradient(to_left,white,transparent)]" />
+    <section className="relative h-[85vh] flex items-center overflow-hidden bg-slate-900">
+      {/* Background Image - Suggest using a high-res photo of urban infrastructure or a clean architectural shot */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="http://googleusercontent.com/image_collection/image_retrieval/9192821739908612764_0"
+          alt="Infrastructure and Growth"
+          className="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/60 to-transparent" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-5xl">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-[1.1] mb-12 tracking-tight">
-            Evidence-based policy advisory for <span className="text-blue-900">fiscally sustainable</span> growth.
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+        <div className="max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-[1.1] mb-8 tracking-tight">
+            Evidence-based policy advisory for <span className="text-blue-400">fiscally sustainable</span> growth.
           </h1>
 
-          <p className="text-xl md:text-3xl text-slate-600 leading-relaxed font-light mb-12">
-            Insignia Policy Research (IPR) is an independent policy advisory firm working with governments and institutions to design rigorous, implementable economic reforms. We specialise in <span className="text-slate-900 font-medium">public finance</span>, <span className="text-slate-900 font-medium">power sector regulation</span>, and <span className="text-slate-900 font-medium">trade and industrial policy</span>—grounded in deep microdata analysis and institutional realism.
+          <p className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-12">
+            Insignia Policy Research (IPR) is an independent policy advisory firm working with governments and institutions to design rigorous, implementable economic reforms. We specialise in <span className="text-white font-medium">public finance</span>, <span className="text-white font-medium">power sector regulation</span>, and <span className="text-white font-medium">trade and industrial policy</span>—grounded in deep microdata analysis and institutional realism.
           </p>
 
           <div className="flex flex-wrap gap-6">
-            <Link href="/contact-us" className="bg-blue-900 text-white px-8 py-4 rounded-sm font-bold hover:bg-blue-800 transition-all shadow-xl hover:-translate-y-1 text-xs uppercase tracking-widest">
+            <Link href="/contact-us" className="bg-blue-600 text-white px-10 py-4 rounded-sm font-bold hover:bg-blue-500 transition-all text-xs uppercase tracking-widest">
               Engage With Us
-            </Link>
-            <Link href="/work" className="group flex items-center gap-2 text-slate-900 font-bold px-8 py-4 text-xs uppercase tracking-widest">
-              View Our Recent Work
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
         </div>

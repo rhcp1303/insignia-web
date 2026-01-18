@@ -10,20 +10,27 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-white">
       <Hero />
 
-      {/* SECTION: CORE VERTICALS */}
-      <section className="py-24 bg-white border-t border-slate-50">
+      {/* CORE VERTICALS WITH IMAGE ACCENTS */}
+      <section className="py-32">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+          <div className="mb-16 max-w-2xl">
+            <h2 className="text-xs font-bold text-blue-600 tracking-[0.3em] uppercase mb-4">Core Expertise</h2>
+            <p className="text-3xl font-bold text-slate-900 leading-tight">
+              We provide technical excellence at the intersection of theory and implementation.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-px bg-slate-100 border border-slate-100">
             {verticals.map((v, i) => (
-              <div key={i} className="group p-8 border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-2xl transition-all rounded-sm">
-                <div className="text-3xl mb-4">{v.icon}</div>
-                <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
-                <p className="text-sm text-slate-600 mb-6">{v.desc}</p>
-                <Link href="/what-we-do" className="text-xs font-bold text-blue-900 uppercase tracking-widest group-hover:underline">
-                  Learn More
+              <div key={i} className="group p-12 bg-white hover:bg-slate-50 transition-all flex flex-col h-full">
+                <div className="text-4xl mb-8 grayscale group-hover:grayscale-0 transition-all">{v.icon}</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">{v.title}</h3>
+                <p className="text-slate-500 leading-relaxed mb-8 flex-grow">{v.desc}</p>
+                <Link href="/what-we-do" className="text-[10px] font-black text-blue-600 uppercase tracking-widest flex items-center gap-2">
+                  View Practice <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </Link>
               </div>
             ))}
@@ -31,32 +38,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION: FEATURED WORK PREVIEW */}
-      <section className="py-24 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-xs font-bold text-blue-900 tracking-[0.3em] uppercase mb-4">Intellectual Output</h2>
-              <h3 className="text-4xl font-bold text-slate-900 tracking-tight">Featured Insights</h3>
-            </div>
-            <Link href="/work" className="hidden md:block text-slate-500 font-bold hover:text-blue-900 transition-colors">
-              Browse All Work →
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {['Articles', 'Podcasts', 'Newsletters'].map((type, i) => (
-              <div key={i} className="relative aspect-square bg-slate-50 flex items-center justify-center group overflow-hidden border border-slate-100">
-                <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/90 transition-all duration-500 z-10" />
-                <span className="text-2xl font-bold text-slate-400 group-hover:text-white relative z-20 transition-colors uppercase tracking-widest">
-                  {type}
-                </span>
-                <Link href="/work" className="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 flex items-center justify-center">
-                  <span className="bg-white text-blue-900 px-6 py-2 font-bold text-xs uppercase tracking-widest">View Archive</span>
-                </Link>
-              </div>
-            ))}
-          </div>
+      {/* CALL TO ACTION WITH BACKGROUND */}
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src="http://googleusercontent.com/image_collection/image_retrieval/10406166739869623401_0"
+            alt="Research background"
+            className="w-full h-full object-cover opacity-10"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold text-slate-900 mb-8">Ready to design implementable reforms?</h2>
+          <Link href="/work" className="inline-block bg-slate-900 text-white px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-blue-600 transition-colors">
+            Explore our research
+          </Link>
         </div>
       </section>
     </main>
