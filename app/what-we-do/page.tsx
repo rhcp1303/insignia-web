@@ -83,34 +83,34 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    <div className="bg-[#FFF5F1] font-sans selection:bg-pink-100 min-h-screen text-[#1E293B]">
+    <div className="bg-slate-900 font-sans selection:bg-blue-500/30 min-h-screen text-white">
 
       {/* SECTION 1: PRACTICE AREAS */}
       <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="mb-14 max-w-4xl border-l-8 border-pink-500 pl-6">
+          <div className="mb-14 max-w-4xl border-l-8 border-blue-600 pl-6">
             <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter">
-              Advisory across <span className="text-pink-600">four core pillars</span> of economic reform.
+              Advisory across <span className="text-blue-500">four core pillars</span> of economic reform.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area, index) => (
-              <div key={index} className="p-10 rounded-3xl bg-white shadow-lg border border-white">
+              <div key={index} className="p-10 rounded-3xl bg-slate-800/50 border border-slate-700 backdrop-blur-sm">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{area.icon}</div>
-                  <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter">
+                  <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
                     {area.title}
                   </h2>
                 </div>
-                <p className="text-slate-600 text-base mb-8 font-bold leading-relaxed">
+                <p className="text-slate-300 text-base mb-8 font-medium leading-relaxed">
                   {area.description}
                 </p>
-                <ul className="grid grid-cols-1 gap-4 pt-6 border-t border-[#FFF5F1]">
+                <ul className="grid grid-cols-1 gap-4 pt-6 border-t border-slate-700">
                   {area.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-pink-500 mt-1.5 shrink-0" />
-                      <span className="text-slate-500 text-sm font-black uppercase tracking-tight">
+                      <div className="w-2 h-2 bg-blue-500 mt-1.5 shrink-0" />
+                      <span className="text-slate-400 text-sm font-black uppercase tracking-tight">
                         {item}
                       </span>
                     </li>
@@ -123,11 +123,11 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* SECTION 2: OUR APPROACH */}
-      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-pink-100">
+      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-slate-800">
         <div className="max-w-[1600px] mx-auto w-full">
           <div className="mb-20">
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">Our Approach</h2>
-            <div className="w-32 h-2 bg-pink-600 mt-2"></div>
+            <div className="w-32 h-2 bg-blue-600 mt-2"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -137,25 +137,25 @@ export default function WhatWeDoPage() {
               return (
                 <div key={idx} className="flex flex-col items-center text-center">
                   <div className="relative mb-10">
-                    {/* Circle Size Increased - Fully Visible */}
-                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-white ${
-                      isActive ? 'border-pink-500 scale-105 shadow-2xl' : 'border-white'
+                    {/* Circle using Slate-800 background and White/Blue borders */}
+                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-slate-800 ${
+                      isActive ? 'border-blue-500 scale-105 shadow-[0_0_30px_rgba(59,130,246,0.3)]' : 'border-slate-700'
                     }`}>
                       <img
                         src={approach.image}
                         alt={approach.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover opacity-80"
                       />
                     </div>
                   </div>
 
                   <div className="px-4">
-                    <h3 className={`text-xl font-black mb-3 uppercase tracking-widest ${
-                      isActive ? 'text-pink-600' : 'text-[#1E293B]'
+                    <h3 className={`text-xl font-black mb-3 uppercase tracking-widest transition-colors duration-500 ${
+                      isActive ? 'text-blue-400' : 'text-white'
                     }`}>
                       {approach.title}
                     </h3>
-                    <p className="text-base font-bold uppercase tracking-tighter text-slate-600">
+                    <p className="text-base font-bold uppercase tracking-tighter text-slate-400">
                       {approach.desc}
                     </p>
                   </div>
