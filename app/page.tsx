@@ -1,46 +1,61 @@
 import Hero from './components/Hero';
+import Link from 'next/link';
 
 export default function Home() {
+  const verticals = [
+    { title: "Public Finance", icon: "📊", desc: "Fiscal frameworks & revenue mobilisation." },
+    { title: "Power Sector", icon: "⚡", desc: "Tariff design & energy economics." },
+    { title: "Trade Policy", icon: "🌐", desc: "Tariff analysis & export competitiveness." },
+    { title: "Data Systems", icon: "📉", desc: "Administrative data & AI forecasting." }
+  ];
+
   return (
-    <main className="min-h-screen bg-white">
-      {/* The Hero component contains your main branding and mission statement */}
+    <main className="min-h-screen">
       <Hero />
 
-      {/* Trust Bar / Core Pillars Overview */}
-      <section className="py-12 bg-slate-50 border-y border-slate-100">
+      {/* SECTION: CORE VERTICALS */}
+      <section className="py-24 bg-white border-t border-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="text-slate-500 font-medium text-sm tracking-wide">
-              CORE ADVISORY VERTICALS
-            </div>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
-              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Public Finance</span>
-              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Power Sector</span>
-              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Trade & Industry</span>
-              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Data Systems</span>
-            </div>
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+            {verticals.map((v, i) => (
+              <div key={i} className="group p-8 border border-slate-100 bg-slate-50/50 hover:bg-white hover:shadow-2xl transition-all rounded-sm">
+                <div className="text-3xl mb-4">{v.icon}</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{v.title}</h3>
+                <p className="text-sm text-slate-600 mb-6">{v.desc}</p>
+                <Link href="/what-we-do" className="text-xs font-bold text-blue-900 uppercase tracking-widest group-hover:underline">
+                  Learn More
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Brief "Our Value" Callout */}
-      <section className="py-24">
+      {/* SECTION: FEATURED WORK PREVIEW */}
+      <section className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-slate-900">
-                Bridging Rigorous Research with Institutional Reality
-              </h3>
-              <p className="text-lg text-slate-600 leading-relaxed">
-                IPR provides evidence-based policy advisory that doesn't just look good on paper but works in the real world. By leveraging deep microdata analysis, we help governments and institutions navigate fiscally sustainable growth.
-              </p>
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <h2 className="text-xs font-bold text-blue-900 tracking-[0.3em] uppercase mb-4">Intellectual Output</h2>
+              <h3 className="text-4xl font-bold text-slate-900 tracking-tight">Featured Insights</h3>
             </div>
-            <div className="bg-blue-900 p-10 rounded-sm text-white shadow-2xl">
-              <p className="text-xl italic font-light leading-relaxed mb-6">
-                "We specialise in designing reforms that are grounded in institutional realism and supported by granular data pipelines."
-              </p>
-              <div className="h-1 w-20 bg-blue-400"></div>
-            </div>
+            <Link href="/work" className="hidden md:block text-slate-500 font-bold hover:text-blue-900 transition-colors">
+              Browse All Work →
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {['Articles', 'Podcasts', 'Newsletters'].map((type, i) => (
+              <div key={i} className="relative aspect-square bg-slate-50 flex items-center justify-center group overflow-hidden border border-slate-100">
+                <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/90 transition-all duration-500 z-10" />
+                <span className="text-2xl font-bold text-slate-400 group-hover:text-white relative z-20 transition-colors uppercase tracking-widest">
+                  {type}
+                </span>
+                <Link href="/work" className="absolute inset-0 z-30 opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                  <span className="bg-white text-blue-900 px-6 py-2 font-bold text-xs uppercase tracking-widest">View Archive</span>
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
