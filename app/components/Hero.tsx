@@ -3,12 +3,11 @@ import Link from 'next/link';
 export default function Hero() {
   return (
     <section className="relative h-[85vh] flex items-center overflow-hidden bg-slate-900">
-      {/* Background Image - Suggest using a high-res photo of urban infrastructure or a clean architectural shot */}
       <div className="absolute inset-0 z-0">
         <img
-          src="http://googleusercontent.com/image_collection/image_retrieval/9192821739908612764_0"
+          src="/images/hero-bg.png"
           alt="Infrastructure and Growth"
-          className="w-full h-full object-cover opacity-40 grayscale hover:grayscale-0 transition-all duration-1000"
+          className="w-full h-full object-cover opacity-40 grayscale"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/60 to-transparent" />
       </div>

@@ -3,17 +3,17 @@ import Link from 'next/link';
 
 export default function Home() {
   const verticals = [
-    { title: "Public Finance", icon: "📊", desc: "Fiscal frameworks & revenue mobilisation." },
-    { title: "Power Sector", icon: "⚡", desc: "Tariff design & energy economics." },
-    { title: "Trade Policy", icon: "🌐", desc: "Tariff analysis & export competitiveness." },
-    { title: "Data Systems", icon: "📉", desc: "Administrative data & AI forecasting." }
+    { title: "Public Finance", img: "/images/finance.png", desc: "Fiscal frameworks & revenue mobilisation." },
+    { title: "Power Sector", img: "/images/power.png", desc: "Tariff design & energy economics." },
+    { title: "Trade Policy", img: "/images/trade.png", desc: "Tariff analysis & export competitiveness." },
+    { title: "Data Systems", img: "/images/data.png", desc: "Administrative data & AI forecasting." }
   ];
 
   return (
     <main className="min-h-screen bg-white">
       <Hero />
 
-      {/* CORE VERTICALS WITH IMAGE ACCENTS */}
+      {/* CORE VERTICALS WITH IMAGE BACKGROUNDS */}
       <section className="py-32">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 max-w-2xl">
@@ -23,15 +23,26 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-px bg-slate-100 border border-slate-100">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-px bg-slate-200 border border-slate-200">
             {verticals.map((v, i) => (
-              <div key={i} className="group p-12 bg-white hover:bg-slate-50 transition-all flex flex-col h-full">
-                <div className="text-4xl mb-8 grayscale group-hover:grayscale-0 transition-all">{v.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-4">{v.title}</h3>
-                <p className="text-slate-500 leading-relaxed mb-8 flex-grow">{v.desc}</p>
-                <Link href="/what-we-do" className="text-[10px] font-black text-blue-600 uppercase tracking-widest flex items-center gap-2">
-                  View Practice <span className="group-hover:translate-x-1 transition-transform">→</span>
-                </Link>
+              <div key={i} className="relative h-[450px] group overflow-hidden bg-slate-900">
+                {/* Background Image Layer */}
+                <img
+                  src={v.img}
+                  alt={v.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                />
+
+                {/* Content Overlay */}
+                <div className="relative z-10 p-10 h-full flex flex-col justify-end bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent">
+                  <h3 className="text-2xl font-bold text-white mb-3">{v.title}</h3>
+                  <p className="text-slate-300 leading-relaxed mb-6 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                    {v.desc}
+                  </p>
+                  <Link href="/what-we-do" className="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
+                    View Practice <span className="group-hover:translate-x-2 transition-transform">→</span>
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -39,17 +50,17 @@ export default function Home() {
       </section>
 
       {/* CALL TO ACTION WITH BACKGROUND */}
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-32 overflow-hidden bg-slate-900">
         <div className="absolute inset-0 -z-10">
           <img
-            src="http://googleusercontent.com/image_collection/image_retrieval/10406166739869623401_0"
+            src="/images/hero-bg.png"
             alt="Research background"
-            className="w-full h-full object-cover opacity-10"
+            className="w-full h-full object-cover opacity-20 grayscale"
           />
         </div>
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-slate-900 mb-8">Ready to design implementable reforms?</h2>
-          <Link href="/work" className="inline-block bg-slate-900 text-white px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-blue-600 transition-colors">
+          <h2 className="text-4xl font-bold text-white mb-8 tracking-tight">Ready to design implementable reforms?</h2>
+          <Link href="/work" className="inline-block bg-white text-slate-900 px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-blue-600 hover:text-white transition-all">
             Explore our research
           </Link>
         </div>
