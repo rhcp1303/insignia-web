@@ -83,20 +83,23 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    <div className="bg-slate-900 font-sans selection:bg-blue-500/30 min-h-screen text-white">
+    // CHANGED: Background to slate-50 (very light gray) and text to slate-900
+    <div className="bg-slate-50 font-sans selection:bg-blue-500/30 min-h-screen text-slate-900">
 
       {/* SECTION 1: PRACTICE AREAS */}
       <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6">
         <div className="max-w-7xl mx-auto w-full">
+          {/* CHANGED: Border color slightly darker for contrast against light bg */}
           <div className="mb-14 max-w-4xl border-l-8 border-blue-600 pl-6">
-            <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter">
-              Advisory across <span className="text-blue-500">four core pillars</span> of economic reform.
+            <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-800">
+              Advisory across <span className="text-blue-600">four core pillars</span> of economic reform.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area, index) => (
-              <div key={index} className="p-10 rounded-3xl bg-slate-800/50 border border-slate-700 backdrop-blur-sm">
+              // KEEPING TILES DARK: These stay slate-800/900 for that high-end contrast
+              <div key={index} className="p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl transition-transform hover:-translate-y-1">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="text-4xl">{area.icon}</div>
                   <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
@@ -123,10 +126,11 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* SECTION 2: OUR APPROACH */}
-      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-slate-800">
+      {/* CHANGED: Border and background for the lower section */}
+      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-slate-200 bg-white">
         <div className="max-w-[1600px] mx-auto w-full">
           <div className="mb-20">
-            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">Our Approach</h2>
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-slate-900">Our Approach</h2>
             <div className="w-32 h-2 bg-blue-600 mt-2"></div>
           </div>
 
@@ -137,25 +141,27 @@ export default function WhatWeDoPage() {
               return (
                 <div key={idx} className="flex flex-col items-center text-center">
                   <div className="relative mb-10">
-                    {/* Circle using Slate-800 background and White/Blue borders */}
-                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-slate-800 ${
-                      isActive ? 'border-blue-500 scale-105 shadow-[0_0_30px_rgba(59,130,246,0.3)]' : 'border-slate-700'
+                    {/* CHANGED: Circle border colors to match light theme */}
+                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-slate-100 ${
+                      isActive ? 'border-blue-600 scale-105 shadow-[0_20px_40px_rgba(59,130,246,0.2)]' : 'border-slate-200'
                     }`}>
                       <img
                         src={approach.image}
                         alt={approach.title}
-                        className="w-full h-full object-cover opacity-80"
+                        className={`w-full h-full object-cover transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-40'}`}
                       />
                     </div>
                   </div>
 
                   <div className="px-4">
                     <h3 className={`text-xl font-black mb-3 uppercase tracking-widest transition-colors duration-500 ${
-                      isActive ? 'text-blue-400' : 'text-white'
+                      isActive ? 'text-blue-600' : 'text-slate-400'
                     }`}>
                       {approach.title}
                     </h3>
-                    <p className="text-base font-bold uppercase tracking-tighter text-slate-400">
+                    <p className={`text-base font-bold uppercase tracking-tighter transition-colors duration-500 ${
+                       isActive ? 'text-slate-800' : 'text-slate-400'
+                    }`}>
                       {approach.desc}
                     </p>
                   </div>
