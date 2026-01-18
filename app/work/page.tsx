@@ -56,21 +56,21 @@ export default function WorkPage() {
   return (
     <div className="h-screen w-full bg-slate-900 text-white overflow-hidden flex flex-col font-sans">
 
-      {/* TOP NAV BAR - CLEAN PROGRESS INDICATORS */}
+      {/* TOP NAV BAR */}
       <nav className="p-8 flex justify-between items-center border-b border-white/10 shrink-0">
-        <h1 className="text-xl font-black uppercase tracking-tighter italic">Engagements</h1>
+        <h1 className="text-xl font-black uppercase tracking-tighter italic text-pink-500">Engagements</h1>
         <div className="flex gap-4">
           {engagements.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setActiveSlide(idx)}
-              className={`h-1.5 w-12 transition-all cursor-pointer ${activeSlide === idx ? 'bg-blue-500' : 'bg-white/10 hover:bg-white/30'}`}
+              className={`h-1.5 w-12 transition-all cursor-pointer ${activeSlide === idx ? 'bg-pink-500' : 'bg-white/10 hover:bg-white/30'}`}
             />
           ))}
         </div>
       </nav>
 
-      {/* MAIN CONTENT - SILENT PAUSE ON HOVER */}
+      {/* MAIN CONTENT AREA */}
       <main
         className="flex-grow flex items-center relative px-6 md:px-20"
         onMouseEnter={() => setIsPaused(true)}
@@ -79,37 +79,37 @@ export default function WorkPage() {
         <div className="max-w-5xl mx-auto w-full relative z-10">
           <div className="flex flex-col gap-12">
 
-            {/* TAG & TITLE */}
+            {/* TAG & PINK TITLE */}
             <header className="space-y-4">
-              <span className="bg-blue-600 text-white px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em]">
+              <span className="bg-pink-600 text-white px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em]">
                 {engagements[activeSlide].tag}
               </span>
-              <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase">
+              <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase text-pink-500">
                 {engagements[activeSlide].title}
               </h2>
-              <p className="text-blue-400 font-bold italic">— {engagements[activeSlide].client}</p>
+              <p className="text-slate-400 font-bold italic">— {engagements[activeSlide].client}</p>
             </header>
 
             {/* DATA GRID */}
             <div className="grid md:grid-cols-2 gap-12 border-t border-white/10 pt-10">
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">The Problem</h3>
+                  <h3 className="text-[10px] font-black uppercase tracking-widest text-pink-500/60 mb-2">The Problem</h3>
                   <p className="text-xl text-slate-300 font-medium leading-relaxed">
                     {engagements[activeSlide].problem}
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">The Approach</h3>
+                  <h3 className="text-[10px] font-black uppercase tracking-widest text-pink-500/60 mb-2">The Approach</h3>
                   <p className="text-xl text-slate-300 font-medium leading-relaxed">
                     {engagements[activeSlide].approach}
                   </p>
                 </div>
               </div>
 
-              {/* OUTCOME BOX */}
-              <div className="bg-white text-slate-900 p-8 md:p-12 border-l-[12px] border-blue-600 self-center shadow-xl">
-                <h3 className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-4">Final Outcome</h3>
+              {/* OUTCOME BOX - PINK ACCENT */}
+              <div className="bg-white text-slate-900 p-8 md:p-12 border-l-[12px] border-pink-500 self-center shadow-xl">
+                <h3 className="text-[10px] font-black uppercase tracking-widest text-pink-600 mb-4">Final Outcome</h3>
                 <p className="text-2xl md:text-4xl font-black leading-tight tracking-tight uppercase">
                   {engagements[activeSlide].outcome}
                 </p>
@@ -124,13 +124,13 @@ export default function WorkPage() {
         <div className="flex gap-2 items-center">
           <button
             onClick={prevSlide}
-            className="px-6 py-3 border border-white/20 hover:bg-white hover:text-slate-900 font-black uppercase text-xs tracking-widest transition-all"
+            className="px-6 py-3 border border-white/20 hover:bg-pink-500 hover:border-pink-500 hover:text-white font-black uppercase text-xs tracking-widest transition-all"
           >
             Prev
           </button>
           <button
             onClick={nextSlide}
-            className="px-6 py-3 border border-white/20 hover:bg-white hover:text-slate-900 font-black uppercase text-xs tracking-widest transition-all"
+            className="px-6 py-3 border border-white/20 hover:bg-pink-500 hover:border-pink-500 hover:text-white font-black uppercase text-xs tracking-widest transition-all"
           >
             Next
           </button>
