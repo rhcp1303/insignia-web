@@ -3,67 +3,101 @@ import Link from 'next/link';
 
 export default function Home() {
   const verticals = [
-    { title: "Public Finance", img: "/images/finance.png", desc: "Fiscal frameworks & revenue mobilisation." },
-    { title: "Power Sector", img: "/images/power.png", desc: "Tariff design & energy economics." },
-    { title: "Trade Policy", img: "/images/trade.png", desc: "Tariff analysis & export competitiveness." },
-    { title: "Data Systems", img: "/images/data.png", desc: "Administrative data & AI forecasting." }
+    {
+      title: "Public Finance & Fiscal Policy",
+      img: "/images/finance.png",
+      desc: "We advise governments on strengthening fiscal sustainability and improving the efficiency and equity of public finance systems.",
+      link: "/what-we-do#finance"
+    },
+    {
+      title: "Power Sector & Energy Economics",
+      img: "/images/power.png",
+      desc: "Our work in the power sector focuses on restoring financial viability while protecting vulnerable consumers.",
+      link: "/what-we-do#power"
+    },
+    {
+      title: "Trade, Industrial & Regulatory Policy",
+      img: "/images/trade.png",
+      desc: "We analyse how trade and regulatory policies affect competitiveness, exports, and employment.",
+      link: "/what-we-do#trade"
+    },
+    {
+      title: "Data Systems & Digital Policy Tools",
+      img: "/images/data.png",
+      desc: "We help governments move from ad-hoc analysis to institutionalised analytics through digital tools.",
+      link: "/what-we-do#data"
+    }
   ];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="bg-white selection:bg-blue-100">
       <Hero />
 
-      {/* CORE VERTICALS - FULL COLOR VERSION */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 max-w-2xl">
-            <h2 className="text-xs font-bold text-blue-600 tracking-[0.3em] uppercase mb-4">Core Expertise</h2>
-            <p className="text-3xl font-bold text-slate-900 leading-tight">
-              We provide technical excellence at the intersection of theory and implementation.
+      {/* SECTION 1: CORE EXPERTISE - 100vh */}
+      <section className="h-screen flex flex-col justify-center bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+
+          <div className="mb-12">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.15] tracking-tight border-l-8 border-blue-600 pl-8 py-2">
+              Our <span className="text-blue-600">Core Expertise</span> is providing technical excellence at the intersection of theory and implementation.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4"> {/* Increased gap for a cleaner look */}
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
             {verticals.map((v, i) => (
-              <div key={i} className="relative h-[500px] group overflow-hidden bg-slate-200">
-                {/* Full Color Image Layer */}
+              <Link
+                href={v.link}
+                key={i}
+                className="relative h-[48vh] group overflow-hidden rounded-2xl shadow-md border border-slate-200 block cursor-pointer bg-slate-900"
+              >
+                {/* Background Image */}
                 <img
                   src={v.img}
                   alt={v.title}
-                  /* Removed grayscale, added hover zoom */
-                  className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-1000"
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1.5s] ease-in-out"
                 />
 
-                {/* Content Overlay - Stronger gradient for text protection */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/20 to-transparent z-10" />
+                {/* Permanent Gradient Scrim */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent z-10" />
 
-                <div className="relative z-20 p-10 h-full flex flex-col justify-end">
-                  <h3 className="text-2xl font-bold text-white mb-3 drop-shadow-md">{v.title}</h3>
-                  <p className="text-white/90 leading-relaxed mb-6 text-sm opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                {/* Content Overlay */}
+                <div className="relative z-20 p-8 h-full flex flex-col justify-end">
+                  <h3 className="text-xl font-bold text-white mb-3 leading-tight tracking-tight group-hover:text-blue-400 transition-colors">
+                    {v.title}
+                  </h3>
+                  <p className="text-white/90 text-sm leading-relaxed font-medium mb-6">
                     {v.desc}
                   </p>
-                  <Link href="/what-we-do" className="text-[10px] font-black text-blue-400 uppercase tracking-widest flex items-center gap-2">
-                    View Practice Area <span className="group-hover:translate-x-2 transition-transform">→</span>
-                  </Link>
+
+                  <div className="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em] flex items-center gap-2">
+                    Learn More <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CALL TO ACTION - FULL COLOR BACKGROUND */}
-      <section className="relative py-32 overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 -z-10">
+      {/* SECTION 2: CTA - 100vh */}
+      <section className="h-screen relative flex flex-col justify-center bg-slate-950 overflow-hidden">
+        <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-bg.png"
             alt="Research background"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-20"
           />
         </div>
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-8 tracking-tight">Ready to design implementable reforms?</h2>
-          <Link href="/work" className="inline-block bg-white text-slate-900 px-12 py-5 font-bold uppercase tracking-widest text-xs hover:bg-blue-600 hover:text-white transition-all shadow-lg">
+
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-12 tracking-tight leading-tight uppercase italic">
+            Ready to design <br />
+            <span className="text-blue-500 not-italic">implementable</span> reforms?
+          </h2>
+          <Link
+            href="/work"
+            className="inline-block bg-white text-slate-900 px-16 py-6 font-bold uppercase tracking-[0.2em] text-xs hover:bg-blue-600 hover:text-white transition-all shadow-2xl rounded-sm"
+          >
             Explore our research
           </Link>
         </div>
