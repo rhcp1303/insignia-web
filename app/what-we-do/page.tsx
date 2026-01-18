@@ -20,7 +20,8 @@ export default function WhatWeDoPage() {
         "Revenue mobilisation and tax design",
         "Subsidy rationalisation and targeting",
         "Effective tax rate and incidence analysis"
-      ]
+      ],
+      icon: "🏛️"
     },
     {
       title: "Power Sector & Energy Economics",
@@ -29,7 +30,8 @@ export default function WhatWeDoPage() {
         "Cross-subsidy and cost-to-serve analysis",
         "Day-ahead demand forecasting",
         "Time-of-day tariff design"
-      ]
+      ],
+      icon: "⚡"
     },
     {
       title: "Trade, Industrial & Regulatory Policy",
@@ -38,7 +40,8 @@ export default function WhatWeDoPage() {
         "Quality Control Orders and AD duties",
         "Export competitiveness and cost pass-through",
         "Manufacturing productivity and firm dynamics"
-      ]
+      ],
+      icon: "🌐"
     },
     {
       title: "Data Systems & Digital Policy Tools",
@@ -47,7 +50,8 @@ export default function WhatWeDoPage() {
         "AI-enabled forecasting tools",
         "Property tax and stamp duty valuation systems",
         "Analytics dashboards for departments"
-      ]
+      ],
+      icon: "📊"
     }
   ];
 
@@ -76,27 +80,31 @@ export default function WhatWeDoPage() {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* SECTION 1: PRACTICE AREAS */}
-      <section className="py-24">
+
+      {/* SECTION 1: ENHANCED PRACTICE AREAS (Heading removed for cleaner landing) */}
+      <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16">
-            <h1 className="text-4xl font-extrabold text-slate-900 mb-4 uppercase tracking-tight">What We Do</h1>
-            <p className="text-xl text-slate-600 max-w-2xl">
-              Insignia Policy Research provides specialized advisory across four core pillars of economic reform.
+            <p className="text-2xl text-slate-600 max-w-3xl leading-relaxed border-l-4 border-blue-600 pl-6">
+              Insignia Policy Research provides specialized advisory across <span className="font-bold text-slate-900">four core pillars</span> of economic reform, blending rigorous academic theory with implementation realism.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area, index) => (
-              <div key={index} className="flex flex-col border-t border-slate-200 pt-8">
-                <h2 className="text-xl font-bold text-blue-900 mb-6 uppercase tracking-widest">
+              <div
+                key={index}
+                className="group p-8 bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl hover:border-blue-200 transition-all duration-300"
+              >
+                <div className="text-4xl mb-6 grayscale group-hover:grayscale-0 transition-all">{area.icon}</div>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 tracking-tight group-hover:text-blue-700 transition-colors">
                   {area.title}
                 </h2>
                 <ul className="space-y-4">
                   {area.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-900 shrink-0" />
-                      <span className="text-slate-700 leading-snug font-medium">{item}</span>
+                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0 group-hover:scale-125 transition-transform" />
+                      <span className="text-slate-600 leading-snug font-medium group-hover:text-slate-900 transition-colors">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -106,8 +114,8 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* SECTION 2: OUR APPROACH */}
-      <section className="min-h-screen flex flex-col justify-center bg-slate-950 text-white overflow-hidden py-20 relative">
+      {/* SECTION 2: OUR APPROACH (AUTO-ANIMATED FULL PAGE) */}
+      <section className="min-h-screen flex flex-col justify-center bg-slate-950 text-white overflow-hidden py-24 relative">
         <div className="max-w-[1600px] mx-auto px-10 w-full relative z-10">
 
           <div className="mb-24 text-center lg:text-left">
