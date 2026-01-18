@@ -83,47 +83,34 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    <div className="bg-[#F8FAFC] font-sans selection:bg-indigo-100">
+    <div className="bg-[#FFF5F1] font-sans selection:bg-pink-100 min-h-screen text-[#1E293B]">
 
-      {/* SECTION 1: PRACTICE AREAS - Enhanced Depth Tiles */}
-      <section className="min-h-screen w-full relative flex flex-col justify-center bg-[#F1F5F9] py-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.5] pointer-events-none"
-             style={{ backgroundImage: `radial-gradient(#cbd5e1 0.8px, transparent 0.8px)`, backgroundSize: '32px 32px' }}></div>
-
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className="mb-14 max-w-4xl">
-            <p className="text-xl md:text-2xl text-[#1E293B] leading-relaxed font-bold tracking-tight border-l-4 border-[#2563EB] pl-6">
-              Insignia Policy Research provides specialized advisory across <span className="text-[#2563EB]">four core pillars</span> of economic reform.
+      {/* SECTION 1: PRACTICE AREAS */}
+      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="mb-14 max-w-4xl border-l-8 border-pink-500 pl-6">
+            <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter">
+              Advisory across <span className="text-pink-600">four core pillars</span> of economic reform.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area, index) => (
-              <div
-                key={index}
-                className="relative group p-8 rounded-3xl border border-white bg-gradient-to-br from-white via-white to-blue-50/30 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.05)] overflow-hidden"
-              >
-                {/* Internal accent flare */}
-                <div className="absolute -top-10 -right-10 w-32 h-32 bg-blue-50 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-                <div className="flex items-center gap-4 mb-5 relative z-10">
-                  <div className="w-12 h-12 flex items-center justify-center bg-slate-50 rounded-2xl shadow-inner text-3xl">
-                    {area.icon}
-                  </div>
-                  <h2 className="text-lg md:text-xl font-bold text-[#0F172A] tracking-tight">
+              <div key={index} className="p-10 rounded-3xl bg-white shadow-lg border border-white">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="text-4xl">{area.icon}</div>
+                  <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter">
                     {area.title}
                   </h2>
                 </div>
-
-                <p className="text-[#475569] text-sm md:text-base mb-8 font-medium leading-relaxed relative z-10">
+                <p className="text-slate-600 text-base mb-8 font-bold leading-relaxed">
                   {area.description}
                 </p>
-
-                <ul className="grid grid-cols-1 gap-3 pt-6 border-t border-slate-100 relative z-10">
+                <ul className="grid grid-cols-1 gap-4 pt-6 border-t border-[#FFF5F1]">
                   {area.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0 shadow-[0_0_8px_rgba(59,130,246,0.5)]" />
-                      <span className="text-[#64748B] text-sm leading-snug font-medium">
+                      <div className="w-2 h-2 bg-pink-500 mt-1.5 shrink-0" />
+                      <span className="text-slate-500 text-sm font-black uppercase tracking-tight">
                         {item}
                       </span>
                     </li>
@@ -135,72 +122,47 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* SECTION 2: OUR APPROACH - Glow Ring Strategy */}
-      <section className="h-screen w-full flex flex-col justify-center bg-[#020617] text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-[0.2] pointer-events-none"
-             style={{ backgroundImage: `linear-gradient(#0f172a 1.5px, transparent 1.5px), linear-gradient(90deg, #0f172a 1.5px, transparent 1.5px)`, backgroundSize: '50px 50px' }}></div>
-
-        <div className="max-w-[1600px] mx-auto px-10 w-full relative z-10">
-          <div className="mb-16 text-center lg:text-left">
-            <h2 className="text-4xl md:text-5xl font-black mb-4 uppercase tracking-tighter text-white">Our Approach</h2>
-            <div className="w-20 h-1 bg-blue-500 rounded-full mx-auto lg:mx-0"></div>
+      {/* SECTION 2: OUR APPROACH */}
+      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-pink-100">
+        <div className="max-w-[1600px] mx-auto w-full">
+          <div className="mb-20">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">Our Approach</h2>
+            <div className="w-32 h-2 bg-pink-600 mt-2"></div>
           </div>
 
-          <div className="relative">
-            <div className="hidden lg:block absolute top-[90px] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-blue-500/20 to-transparent z-0"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {approachItems.map((approach, idx) => {
+              const isActive = activeIndex === idx;
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
-              {approachItems.map((approach, idx) => {
-                const isActive = activeIndex === idx;
-
-                return (
-                  <div key={idx} className="flex flex-col items-center text-center">
-                    <div className="relative mb-10">
-                      {/* Interactive Aura */}
-                      <div className={`absolute inset-0 rounded-full transition-all duration-1000 blur-2xl ${
-                        isActive ? 'bg-blue-600/30 scale-150' : 'bg-transparent scale-100'
-                      }`}></div>
-
-                      <div className={`w-36 h-36 md:w-44 md:h-44 rounded-full border-2 overflow-hidden relative z-10 transition-all duration-1000 ease-in-out bg-slate-900 ${
-                        isActive
-                          ? 'border-blue-400 shadow-[0_0_50px_rgba(59,130,246,0.4)] scale-110'
-                          : 'border-white/5 scale-90 grayscale opacity-20'
-                      }`}>
-                        {/* Overlay to give the image a "tiled" inner depth */}
-                        <div className={`absolute inset-0 z-20 pointer-events-none transition-opacity duration-1000 ${isActive ? 'opacity-20' : 'opacity-0'} bg-gradient-to-tr from-blue-900 to-transparent`}></div>
-
-                        <img
-                          src={approach.image}
-                          alt={approach.title}
-                          className={`w-full h-full object-cover transition-transform duration-[3000ms] ${
-                            isActive ? 'scale-125 rotate-2' : 'scale-100'
-                          }`}
-                        />
-                      </div>
-                    </div>
-
-                    <div className={`max-w-[280px] transition-all duration-1000 ${
-                      isActive ? 'opacity-100 translate-y-0' : 'opacity-20 translate-y-4'
+              return (
+                <div key={idx} className="flex flex-col items-center text-center">
+                  <div className="relative mb-10">
+                    {/* Circle Size Increased - Fully Visible */}
+                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-white ${
+                      isActive ? 'border-pink-500 scale-105 shadow-2xl' : 'border-white'
                     }`}>
-                      <h3 className={`text-base font-bold mb-3 tracking-widest uppercase transition-colors duration-700 ${
-                        isActive ? 'text-blue-400' : 'text-slate-500'
-                      }`}>
-                        {approach.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-slate-400 font-light">
-                        {approach.desc}
-                      </p>
+                      <img
+                        src={approach.image}
+                        alt={approach.title}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
 
-        {/* Dynamic Background Spotlights */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-           <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 blur-[120px] rounded-full transition-opacity duration-1000 ${activeIndex % 2 === 0 ? 'opacity-100' : 'opacity-50'}`}></div>
+                  <div className="px-4">
+                    <h3 className={`text-xl font-black mb-3 uppercase tracking-widest ${
+                      isActive ? 'text-pink-600' : 'text-[#1E293B]'
+                    }`}>
+                      {approach.title}
+                    </h3>
+                    <p className="text-base font-bold uppercase tracking-tighter text-slate-600">
+                      {approach.desc}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>
