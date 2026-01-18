@@ -30,13 +30,20 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-white selection:bg-blue-100">
-      <Hero />
+    /* SNAPPING ENGINE:
+       - h-[calc(100vh-6rem)]: Limits height to the viewable area below the nav.
+       - snap-y snap-mandatory: Enables the gliding lock-on effect.
+    */
+    <main className="h-[calc(100vh-6rem)] overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white selection:bg-blue-100">
 
-      {/* SECTION 1: CORE EXPERTISE - 100vh */}
-      <section className="h-screen flex flex-col justify-center bg-[#FDFDFD] border-b border-slate-200 overflow-hidden">
+      {/* SECTION 0: HERO - Wrapped for snapping */}
+      <section className="h-full snap-start">
+        <Hero />
+      </section>
+
+      {/* SECTION 1: CORE EXPERTISE */}
+      <section className="h-full snap-start flex flex-col justify-center bg-[#FDFDFD] border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 w-full">
-
           <div className="mb-14">
             <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight max-w-5xl relative">
               Our <span className="relative">Core Expertise<span className="absolute bottom-1 left-0 w-full h-2 bg-blue-600/20 -z-10"></span></span> is providing technical excellence at the intersection of theory and implementation.
@@ -50,17 +57,12 @@ export default function Home() {
                 key={i}
                 className="relative h-[45vh] group overflow-hidden rounded-xl border border-slate-200 block cursor-pointer bg-slate-900 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-blue-200"
               >
-                {/* Image: Grayscale by default, color on hover to reduce clutter */}
                 <img
                   src={v.img}
                   alt={v.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-in-out"
                 />
-
-                {/* Scrim: Darker and cleaner */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent z-10" />
-
-                {/* Content Overlay */}
                 <div className="relative z-20 p-8 h-full flex flex-col justify-end">
                   <h3 className="text-lg font-bold text-white mb-3 tracking-tight group-hover:text-blue-400 transition-colors">
                     {v.title}
@@ -68,7 +70,6 @@ export default function Home() {
                   <p className="text-slate-300 text-[13px] leading-relaxed font-normal mb-6 opacity-90">
                     {v.desc}
                   </p>
-
                   <div className="text-[10px] font-black text-blue-500 uppercase tracking-[0.25em] flex items-center gap-2">
                     Learn More
                     <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
@@ -80,8 +81,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 2: CTA - 100vh */}
-      <section className="h-screen relative flex flex-col justify-center bg-[#020617] overflow-hidden">
+      {/* SECTION 2: CTA */}
+      <section className="h-full snap-start relative flex flex-col justify-center bg-[#020617] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-bg.png"
