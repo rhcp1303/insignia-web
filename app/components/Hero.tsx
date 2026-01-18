@@ -7,9 +7,11 @@ export default function Hero() {
         <img
           src="/images/hero-bg.png"
           alt="Infrastructure and Growth"
-          className="w-full h-full object-cover opacity-40 grayscale"
+          /* Removed grayscale, increased opacity to 60% for full color vibrancy */
+          className="w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/60 to-transparent" />
+        {/* Deep gradient ensures text is still readable over the colorful image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/40 to-transparent" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
@@ -18,7 +20,7 @@ export default function Hero() {
             Evidence-based policy advisory for <span className="text-blue-400">fiscally sustainable</span> growth.
           </h1>
 
-          <p className="text-xl md:text-2xl text-slate-200 leading-relaxed font-light mb-12">
+          <p className="text-xl md:text-2xl text-slate-100 leading-relaxed font-light mb-12">
             Insignia Policy Research (IPR) is an independent policy advisory firm working with governments and institutions to design rigorous, implementable economic reforms. We specialise in <span className="text-white font-medium">public finance</span>, <span className="text-white font-medium">power sector regulation</span>, and <span className="text-white font-medium">trade and industrial policy</span>—grounded in deep microdata analysis and institutional realism.
           </p>
 
