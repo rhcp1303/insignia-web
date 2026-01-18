@@ -34,43 +34,44 @@ export default function Home() {
       <Hero />
 
       {/* SECTION 1: CORE EXPERTISE - 100vh */}
-      <section className="h-screen flex flex-col justify-center bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+      <section className="h-screen flex flex-col justify-center bg-[#FDFDFD] border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 w-full">
 
-          <div className="mb-12">
-            <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 leading-[1.15] tracking-tight border-l-8 border-blue-600 pl-8 py-2">
-              Our <span className="text-blue-600">Core Expertise</span> is providing technical excellence at the intersection of theory and implementation.
+          <div className="mb-14">
+            <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight max-w-5xl relative">
+              Our <span className="relative">Core Expertise<span className="absolute bottom-1 left-0 w-full h-2 bg-blue-600/20 -z-10"></span></span> is providing technical excellence at the intersection of theory and implementation.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-5">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
             {verticals.map((v, i) => (
               <Link
                 href={v.link}
                 key={i}
-                className="relative h-[48vh] group overflow-hidden rounded-2xl shadow-md border border-slate-200 block cursor-pointer bg-slate-900"
+                className="relative h-[45vh] group overflow-hidden rounded-xl border border-slate-200 block cursor-pointer bg-slate-900 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-blue-200"
               >
-                {/* Background Image */}
+                {/* Image: Grayscale by default, color on hover to reduce clutter */}
                 <img
                   src={v.img}
                   alt={v.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1.5s] ease-in-out"
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-in-out"
                 />
 
-                {/* Permanent Gradient Scrim */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent z-10" />
+                {/* Scrim: Darker and cleaner */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent z-10" />
 
                 {/* Content Overlay */}
                 <div className="relative z-20 p-8 h-full flex flex-col justify-end">
-                  <h3 className="text-xl font-bold text-white mb-3 leading-tight tracking-tight group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-bold text-white mb-3 tracking-tight group-hover:text-blue-400 transition-colors">
                     {v.title}
                   </h3>
-                  <p className="text-white/90 text-sm leading-relaxed font-medium mb-6">
+                  <p className="text-slate-300 text-[13px] leading-relaxed font-normal mb-6 opacity-90">
                     {v.desc}
                   </p>
 
-                  <div className="text-[10px] font-black text-blue-400 uppercase tracking-[0.2em] flex items-center gap-2">
-                    Learn More <span className="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                  <div className="text-[10px] font-black text-blue-500 uppercase tracking-[0.25em] flex items-center gap-2">
+                    Learn More
+                    <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
                   </div>
                 </div>
               </Link>
@@ -80,23 +81,23 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: CTA - 100vh */}
-      <section className="h-screen relative flex flex-col justify-center bg-slate-950 overflow-hidden">
+      <section className="h-screen relative flex flex-col justify-center bg-[#020617] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-bg.png"
             alt="Research background"
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-10"
           />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-12 tracking-tight leading-tight uppercase italic">
-            Ready to design <br />
-            <span className="text-blue-500 not-italic">implementable</span> reforms?
+        <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
+          <h2 className="text-5xl md:text-6xl font-black text-white mb-12 tracking-tighter leading-[1.1]">
+            READY TO DESIGN <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">IMPLEMENTABLE</span> REFORMS?
           </h2>
           <Link
             href="/work"
-            className="inline-block bg-white text-slate-900 px-16 py-6 font-bold uppercase tracking-[0.2em] text-xs hover:bg-blue-600 hover:text-white transition-all shadow-2xl rounded-sm"
+            className="inline-block bg-white text-slate-950 px-14 py-5 font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-600 hover:text-white transition-all shadow-xl"
           >
             Explore our research
           </Link>
