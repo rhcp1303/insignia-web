@@ -1,68 +1,49 @@
-import Link from 'next/link';
+import Hero from './components/Hero';
 
 export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto px-6 py-20">
-      {/* Hero Section */}
-      <section className="max-w-3xl mb-24">
-        <h1 className="text-5xl font-extrabold text-slate-900 mb-6 leading-tight">
-          Evidence-based policy advisory for fiscally sustainable growth
-        </h1>
-        <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-          Insignia Policy Research (IPR) is an independent policy advisory firm working with governments and institutions to design rigorous, implementable economic reforms.
-        </p>
-        <div className="flex gap-6">
-          <Link href="/contact" className="bg-blue-900 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-800 transition">
-            Engage with us
-          </Link>
-          <Link href="/work" className="text-blue-900 px-6 py-3 rounded-md font-medium hover:bg-slate-50 transition">
-            View our work →
-          </Link>
-        </div>
-      </section>
+    <main className="min-h-screen bg-white">
+      {/* The Hero component contains your main branding and mission statement */}
+      <Hero />
 
-      {/* Services Grid */}
-      <section className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 py-16 border-t border-slate-100">
-        <ServiceCard
-          title="Public Finance"
-          items={["Medium-term fiscal frameworks", "Revenue mobilisation", "Subsidy rationalisation"]}
-        />
-        <ServiceCard
-          title="Power Sector"
-          items={["Electricity tariff design", "Demand forecasting", "Cost-to-serve analysis"]}
-        />
-        <ServiceCard
-          title="Trade & Industry"
-          items={["Tariff & NTB analysis", "Export competitiveness", "Productivity dynamics"]}
-        />
-        <ServiceCard
-          title="Data Systems"
-          items={["Administrative data pipelines", "AI forecasting tools", "Analytics dashboards"]}
-        />
-      </section>
-
-      {/* Approach Section */}
-      <section className="bg-slate-900 text-white rounded-2xl p-12 my-12">
-        <h2 className="text-3xl font-bold mb-8">Our Approach</h2>
-        <div className="grid md:grid-cols-4 gap-8">
-          {['Microdata first', 'Counterfactual analysis', 'Implementation realism', 'Capability building'].map((item) => (
-            <div key={item} className="border-l border-blue-500 pl-4">
-              <p className="text-lg font-medium">{item}</p>
+      {/* Trust Bar / Core Pillars Overview */}
+      <section className="py-12 bg-slate-50 border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div className="text-slate-500 font-medium text-sm tracking-wide">
+              CORE ADVISORY VERTICALS
             </div>
-          ))}
+            <div className="flex flex-wrap justify-center gap-x-12 gap-y-4">
+              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Public Finance</span>
+              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Power Sector</span>
+              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Trade & Industry</span>
+              <span className="text-blue-900/40 font-bold text-lg uppercase tracking-widest">Data Systems</span>
+            </div>
+          </div>
         </div>
       </section>
-    </div>
-  );
-}
 
-function ServiceCard({ title, items }: { title: string, items: string[] }) {
-  return (
-    <div>
-      <h3 className="font-bold text-lg mb-4 text-blue-900">{title}</h3>
-      <ul className="space-y-2 text-slate-600 text-sm">
-        {items.map(item => <li key={item}>• {item}</li>)}
-      </ul>
-    </div>
+      {/* Brief "Our Value" Callout */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <h3 className="text-3xl font-bold text-slate-900">
+                Bridging Rigorous Research with Institutional Reality
+              </h3>
+              <p className="text-lg text-slate-600 leading-relaxed">
+                IPR provides evidence-based policy advisory that doesn't just look good on paper but works in the real world. By leveraging deep microdata analysis, we help governments and institutions navigate fiscally sustainable growth.
+              </p>
+            </div>
+            <div className="bg-blue-900 p-10 rounded-sm text-white shadow-2xl">
+              <p className="text-xl italic font-light leading-relaxed mb-6">
+                "We specialise in designing reforms that are grounded in institutional realism and supported by granular data pipelines."
+              </p>
+              <div className="h-1 w-20 bg-blue-400"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
