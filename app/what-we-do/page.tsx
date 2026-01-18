@@ -1,9 +1,17 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function WhatWeDoPage() {
-  // Removed activeIndex state and useEffect timer for simplicity
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Keep the interactive timer for the Approach section
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % 4);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
 
   const practiceAreas = [
     {
@@ -78,7 +86,7 @@ export default function WhatWeDoPage() {
   return (
     <div className="bg-white font-sans selection:bg-indigo-100">
 
-      {/* SECTION 1: PRACTICE AREAS */}
+      {/* SECTION 1: PRACTICE AREAS (Static with Descriptions) */}
       <section className="min-h-screen w-full relative flex flex-col justify-center bg-[#F8FAFC] py-20 overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none"
              style={{ backgroundImage: `radial-gradient(#1e1b4b 1px, transparent 1px)`, backgroundSize: '30px 30px' }}></div>
@@ -94,7 +102,7 @@ export default function WhatWeDoPage() {
             {practiceAreas.map((area, index) => (
               <div
                 key={index}
-                className="p-8 bg-white border border-slate-200 rounded-[2rem] shadow-sm hover:shadow-md transition-all duration-300"
+                className="p-8 bg-white border border-slate-200 rounded-[2rem] shadow-sm hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-5 mb-4">
                   <span className="text-4xl">{area.icon}</span>
@@ -103,6 +111,7 @@ export default function WhatWeDoPage() {
                   </h2>
                 </div>
 
+                {/* Added Description */}
                 <p className="text-[#64748B] text-base mb-6 font-medium leading-relaxed">
                   {area.description}
                 </p>
@@ -123,8 +132,8 @@ export default function WhatWeDoPage() {
         </div>
       </section>
 
-      {/* SECTION 2: OUR APPROACH (Non-interactive, Always Highlighted) */}
-      <section className="min-h-screen w-full flex flex-col justify-center bg-[#020617] text-white py-24 overflow-hidden relative">
+      {/* SECTION 2: OUR APPROACH (Restored to Interactive State) */}
+      <section className="h-screen w-full flex flex-col justify-center bg-[#020617] text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
              style={{ backgroundImage: `linear-gradient(#94a3b8 1px, transparent 1px), linear-gradient(90deg, #94a3b8 1px, transparent 1px)`, backgroundSize: '80px 80px' }}></div>
 
@@ -135,35 +144,49 @@ export default function WhatWeDoPage() {
           </div>
 
           <div className="relative">
-            {/* The Background Pipeline Line */}
             <div className="hidden lg:block absolute top-[115px] left-0 w-full h-[1px] bg-slate-800/50 z-0"></div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
-              {approachItems.map((approach, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center">
-                  <div className="relative mb-10">
-                    {/* Constant Glow for all tiles */}
-                    <div className="absolute inset-0 rounded-full bg-blue-500/5 z-0 transform scale-125"></div>
+              {approachItems.map((approach, idx) => {
+                const isActive = activeIndex === idx;
 
-                    <div className="w-48 h-48 md:w-56 md:h-56 rounded-full border-[2px] bg-slate-900 border-blue-400/50 shadow-[0_0_40px_rgba(59,130,246,0.15)] overflow-hidden relative z-10">
-                      <img
-                        src={approach.image}
-                        alt={approach.title}
-                        className="w-full h-full object-cover"
-                      />
+                return (
+                  <div key={idx} className="flex flex-col items-center text-center">
+                    <div className="relative mb-10">
+                      {isActive && (
+                        <div className="absolute inset-0 rounded-full bg-blue-500/10 animate-ping z-0 transform scale-125"></div>
+                      )}
+
+                      <div className={`w-48 h-48 md:w-56 md:h-56 rounded-full border-[2px] bg-slate-900 overflow-hidden relative z-10 transition-all duration-1000 ease-in-out ${
+                        isActive
+                          ? 'border-blue-400 shadow-[0_0_60px_rgba(59,130,246,0.2)] scale-110'
+                          : 'border-slate-800 scale-90 grayscale-[80%] opacity-20'
+                      }`}>
+                        <img
+                          src={approach.image}
+                          alt={approach.title}
+                          className={`w-full h-full object-cover transition-transform duration-[2000ms] ${
+                            isActive ? 'scale-125' : 'scale-100'
+                          }`}
+                        />
+                      </div>
+                    </div>
+
+                    <div className={`max-w-[300px] transition-all duration-1000 ${
+                      isActive ? 'translate-y-[-10px] opacity-100' : 'translate-y-0 opacity-40'
+                    }`}>
+                      <h3 className={`text-xl font-bold mb-4 tracking-tight uppercase transition-colors duration-700 ${
+                        isActive ? 'text-blue-400' : 'text-slate-500'
+                      }`}>
+                        {approach.title}
+                      </h3>
+                      <p className="text-base leading-relaxed text-slate-300 font-light">
+                        {approach.desc}
+                      </p>
                     </div>
                   </div>
-
-                  <div className="max-w-[300px]">
-                    <h3 className="text-xl font-bold mb-4 tracking-tight uppercase text-blue-400">
-                      {approach.title}
-                    </h3>
-                    <p className="text-base leading-relaxed text-slate-300 font-light">
-                      {approach.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
