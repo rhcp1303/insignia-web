@@ -22,7 +22,8 @@ export default function WhatWeDoPage() {
         "Subsidy rationalisation and targeting",
         "Effective tax rate and incidence analysis"
       ],
-      icon: "🏛️"
+      icon: "🏛️",
+      bgImage: "/images/finance.png"
     },
     {
       title: "Power Sector & Energy Economics",
@@ -33,7 +34,8 @@ export default function WhatWeDoPage() {
         "Day-ahead demand forecasting",
         "Time-of-day tariff design"
       ],
-      icon: "⚡"
+      icon: "⚡",
+      bgImage: "/images/power.png"
     },
     {
       title: "Trade, Industrial & Regulatory Policy",
@@ -44,7 +46,8 @@ export default function WhatWeDoPage() {
         "Export competitiveness and cost pass-through",
         "Manufacturing productivity and firm dynamics"
       ],
-      icon: "🌐"
+      icon: "🌐",
+      bgImage: "/images/trade.png"
     },
     {
       title: "Data Systems & Digital Policy Tools",
@@ -55,7 +58,8 @@ export default function WhatWeDoPage() {
         "Property tax and stamp duty valuation systems",
         "Analytics dashboards for departments"
       ],
-      icon: "📊"
+      icon: "📊",
+      bgImage: "/images/data.png"
     }
   ];
 
@@ -83,13 +87,12 @@ export default function WhatWeDoPage() {
   ];
 
   return (
-    // CHANGED: Background to slate-50 (very light gray) and text to slate-900
+    // Main wrapper set to bg-slate-50
     <div className="bg-slate-50 font-sans selection:bg-blue-500/30 min-h-screen text-slate-900">
 
       {/* SECTION 1: PRACTICE AREAS */}
       <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6">
         <div className="max-w-7xl mx-auto w-full">
-          {/* CHANGED: Border color slightly darker for contrast against light bg */}
           <div className="mb-14 max-w-4xl border-l-8 border-blue-600 pl-6">
             <p className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-slate-800">
               Advisory across <span className="text-blue-600">four core pillars</span> of economic reform.
@@ -98,27 +101,49 @@ export default function WhatWeDoPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {practiceAreas.map((area, index) => (
-              // KEEPING TILES DARK: These stay slate-800/900 for that high-end contrast
-              <div key={index} className="p-10 rounded-3xl bg-slate-900 border border-slate-800 shadow-xl transition-transform hover:-translate-y-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="text-4xl">{area.icon}</div>
-                  <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
-                    {area.title}
-                  </h2>
+              <div
+                key={index}
+                className="group relative p-10 rounded-3xl overflow-hidden border border-slate-200 shadow-xl transition-all duration-300 hover:-translate-y-1 h-full min-h-[460px]"
+              >
+                {/* STATIC BACKGROUND IMAGE */}
+                <div
+                  className="absolute inset-0 z-0"
+                  style={{
+                    backgroundImage: `url(${area.bgImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center'
+                  }}
+                />
+
+                {/* STATIC OVERLAY - Constant 75% opacity */}
+                <div className="absolute inset-0 z-10 bg-slate-900/75" />
+
+                {/* CONTENT LAYER */}
+                <div className="relative z-20 flex flex-col h-full">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="text-4xl drop-shadow-2xl">{area.icon}</div>
+                    <h2 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white">
+                      {area.title}
+                    </h2>
+                  </div>
+
+                  <p className="text-slate-200 text-base mb-8 font-medium leading-relaxed max-w-lg">
+                    {area.description}
+                  </p>
+
+                  <div className="mt-auto pt-6 border-t border-white/20">
+                    <ul className="grid grid-cols-1 gap-4">
+                      {area.items.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-blue-500 mt-1.5 shrink-0" />
+                          <span className="text-slate-300 text-xs font-black uppercase tracking-widest">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <p className="text-slate-300 text-base mb-8 font-medium leading-relaxed">
-                  {area.description}
-                </p>
-                <ul className="grid grid-cols-1 gap-4 pt-6 border-t border-slate-700">
-                  {area.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-blue-500 mt-1.5 shrink-0" />
-                      <span className="text-slate-400 text-sm font-black uppercase tracking-tight">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -126,8 +151,8 @@ export default function WhatWeDoPage() {
       </section>
 
       {/* SECTION 2: OUR APPROACH */}
-      {/* CHANGED: Border and background for the lower section */}
-      <section className="min-h-screen w-full flex flex-col justify-center py-20 px-6 border-t border-slate-200 bg-white">
+      {/* UPDATED: Changed bg-white to bg-slate-50 to match the first section */}
+      <section className="min-h-screen w-full flex flex-col justify-center py-24 px-6 border-t border-slate-200 bg-slate-50">
         <div className="max-w-[1600px] mx-auto w-full">
           <div className="mb-20">
             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-slate-900">Our Approach</h2>
@@ -141,14 +166,14 @@ export default function WhatWeDoPage() {
               return (
                 <div key={idx} className="flex flex-col items-center text-center">
                   <div className="relative mb-10">
-                    {/* CHANGED: Circle border colors to match light theme */}
-                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 bg-slate-100 ${
-                      isActive ? 'border-blue-600 scale-105 shadow-[0_20px_40px_rgba(59,130,246,0.2)]' : 'border-slate-200'
+                    {/* Circle using slate-200 for inactive border to pop against slate-50 background */}
+                    <div className={`w-64 h-64 md:w-72 md:h-72 rounded-full border-8 overflow-hidden transition-all duration-700 ${
+                      isActive ? 'border-blue-600 scale-105 shadow-[0_20px_40px_rgba(59,130,246,0.15)] bg-white' : 'border-slate-200 bg-slate-100'
                     }`}>
                       <img
                         src={approach.image}
                         alt={approach.title}
-                        className={`w-full h-full object-cover transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-40'}`}
+                        className={`w-full h-full object-cover transition-opacity duration-700 ${isActive ? 'opacity-100' : 'opacity-30'}`}
                       />
                     </div>
                   </div>
@@ -159,7 +184,7 @@ export default function WhatWeDoPage() {
                     }`}>
                       {approach.title}
                     </h3>
-                    <p className={`text-base font-bold uppercase tracking-tighter transition-colors duration-500 ${
+                    <p className={`text-sm font-bold uppercase tracking-tight transition-colors duration-500 leading-tight ${
                        isActive ? 'text-slate-800' : 'text-slate-400'
                     }`}>
                       {approach.desc}
