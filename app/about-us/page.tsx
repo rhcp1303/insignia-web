@@ -26,10 +26,10 @@ export default function AboutUsPage() {
             <div className="lg:col-span-2">
               <div className="bg-slate-900 text-white p-10 rounded-sm shadow-2xl relative overflow-hidden border-t-4 border-blue-600">
                 <p className="text-sm font-bold uppercase tracking-widest mb-8 text-slate-400">
-                  Our Objectives
+                  Our mission is to help governments design reforms that are
                 </p>
                 <ul className="space-y-6">
-                  {['analytically credible,', 'fiscally sustainable, and', 'institutionally feasible.'].map((item, i) => (
+                  {['analytically credible', 'fiscally sustainable', 'institutionally feasible.'].map((item, i) => (
                     <li key={i} className="group">
                       <div className="flex items-center gap-4 text-white font-bold tracking-tight text-xl uppercase">
                         <div className="w-1.5 h-6 bg-blue-600"></div>
