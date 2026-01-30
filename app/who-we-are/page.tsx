@@ -97,14 +97,7 @@ export default function WhoWeArePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white pb-24">
-      <section className="bg-slate-50 py-16 border-b border-slate-100 mb-12">
-        <div className="max-w-5xl mx-auto px-6">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-2 uppercase tracking-tighter text-center">Who We Are</h1>
-          <p className="text-slate-500 text-center font-medium uppercase tracking-[0.2em] text-xs">Our Core Team & Affiliates</p>
-        </div>
-      </section>
-
+    <div className="min-h-screen bg-white pb-24 pt-20">
       <div className="max-w-5xl mx-auto px-6">
         {/* Adjusted grid for smaller tiles: added gap-16 and center-alignment */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 justify-items-center">
@@ -124,7 +117,7 @@ export default function WhoWeArePage() {
 
               <div className="text-center md:text-center">
                 <h2 className="text-lg font-semibold text-slate-900 leading-tight mb-1">{member.name}</h2>
-                <p className="text-#FF5C35  uppercase tracking-widest text-[12px] mb-3">
+                <p className="text-#FF5C35 uppercase tracking-widest text-[12px] mb-3">
                   {member.role}
                 </p>
 
