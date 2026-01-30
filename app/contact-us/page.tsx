@@ -39,9 +39,9 @@ export default function ContactUs() {
                     <span className="text-blue-900 text-lg">📍</span>
                   </div>
                   <div>
-                    <p className="text-slate-700 font-medium">Villa 6, Kent Palm Villas</p>
-                    <p className="text-slate-600 text-sm">Athani, Kochi – 682030</p>
-                    <p className="text-slate-600 text-sm">Kerala, India</p>
+                    <p className="text-slate-700 font-medium">102, 11/160A, VKV Lane, Chembumukku,</p>
+                    <p className="text-slate-600 text-sm">Vazhakkala, Kakkanad, Ernakulam</p>
+                    <p className="text-slate-600 text-sm">Kerala, India 682030</p>
                   </div>
                 </div>
               </div>

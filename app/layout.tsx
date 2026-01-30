@@ -88,12 +88,13 @@ export default function RootLayout({
                 <address className="not-italic text-sm text-slate-500 space-y-4">
                   <div>
                     <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Registered Office</p>
-                    <p>Villa 6, Kent Palm Villas</p>
-                    <p>Athani, Kochi – 682030, India</p>
+                    <p>102, 11/160A, VKV Lane, Chembumukku,</p>
+                    <p>Vazhakkala, Kakkanad, Ernakulam,</p>
+                    <p>Kerala, India 682030</p>
                   </div>
                   <div>
                     <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Email</p>
-                    <a href="mailto:ankitanand.bit@gmail.com" className="text-blue-900 hover:text-black transition-colors font-medium">
+                    <a href="mailto:enquiry@iprglobal.com" className="text-blue-900 hover:text-black transition-colors font-medium">
                       enquiry@iprglobal.com
                     </a>
                   </div>
