@@ -22,8 +22,7 @@ export default function RootLayout({
         {/* NAVIGATION BAR */}
         <nav className="border-b border-slate-100 sticky top-0 bg-white z-50 shadow-sm">
           <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-
-            {/* LOGO AREA - Optimized Container to prevent link overlap */}
+            {/* LOGO AREA */}
             <Link href="/" className="relative flex items-center h-full w-[250px] md:w-[350px] overflow-hidden">
               <div className="relative h-full w-full transform scale-[2.2] origin-left">
                 <Image
@@ -41,27 +40,18 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* NAV LINKS - Clickable and properly spaced */}
+            {/* NAV LINKS */}
             <div className="hidden lg:flex items-center gap-8 text-[11px] font-black tracking-widest text-slate-600 relative z-10">
-              <Link href="/about-us" className="hover:text-blue-900 transition-colors">ABOUT US</Link>
-              <Link href="/what-we-do" className="hover:text-blue-900 transition-colors">WHAT WE DO</Link>
-              <Link href="/who-we-are" className="hover:text-blue-900 transition-colors">WHO WE ARE</Link>
-              <Link href="/work" className="hover:text-blue-900 transition-colors">OUR WORK</Link>
+              <Link href="/about-us" className="hover:text-blue-900 transition-colors uppercase">About Us</Link>
+              <Link href="/what-we-do" className="hover:text-blue-900 transition-colors uppercase">What We Do</Link>
+              <Link href="/who-we-are" className="hover:text-blue-900 transition-colors uppercase">Who We Are</Link>
+              <Link href="/work" className="hover:text-blue-900 transition-colors uppercase">Our Work</Link>
               <Link
                 href="/contact-us"
-                className="bg-blue-900 text-white px-6 py-3 rounded-sm hover:bg-black transition-all ml-4"
+                className="bg-blue-900 text-white px-6 py-3 rounded-sm hover:bg-black transition-all ml-4 uppercase"
               >
-                CONTACT US
+                Contact Us
               </Link>
-            </div>
-
-            {/* MOBILE MENU */}
-            <div className="lg:hidden relative z-10">
-              <button className="p-2 text-blue-900">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              </button>
             </div>
           </div>
         </nav>
@@ -76,43 +66,48 @@ export default function RootLayout({
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
               <div className="col-span-1 lg:col-span-2 space-y-6">
-
-                {/* Footer Logo using the same technique */}
                 <div className="relative h-16 w-64 overflow-hidden">
                   <div className="relative h-full w-full transform scale-[1.8] origin-left">
                     <Image
                       src="/images/logo.png"
                       alt="Insignia Policy Research"
                       fill
-                      style={{
-                        objectFit: 'contain',
-                        objectPosition: 'left center',
-                        filter: 'contrast(1.1) brightness(1.05)',
-                        mixBlendMode: 'multiply'
-                      }}
+                      style={{ objectFit: 'contain', objectPosition: 'left center', mixBlendMode: 'multiply' }}
                     />
                   </div>
                 </div>
-
                 <p className="text-sm text-slate-500 max-w-sm leading-relaxed">
                   Independent policy advisory firm specializing in public finance,
                   power sector regulation, and trade policy grounded in institutional realism.
                 </p>
               </div>
 
+              {/* Office Column */}
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Office</h4>
-                <address className="not-italic text-sm text-slate-500 space-y-2">
-                  <p>Villa 6, Kent Palm Villas</p>
-                  <p>Athani, Kochi – 682030</p>
-                  <p className="text-blue-700 pt-2 font-bold font-sans uppercase text-[10px]">enquiry@iprglobal.com</p>
+                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Connect</h4>
+                <address className="not-italic text-sm text-slate-500 space-y-4">
+                  <div>
+                    <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Registered Office</p>
+                    <p>Villa 6, Kent Palm Villas</p>
+                    <p>Athani, Kochi – 682030, India</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Email</p>
+                    <a href="mailto:ankitanand.bit@gmail.com" className="text-blue-900 hover:text-black transition-colors font-medium">
+                      enquiry@iprglobal.com
+                    </a>
+                  </div>
                 </address>
               </div>
 
+              {/* Corporate Column */}
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Corporate</h4>
+                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Identification</h4>
                 <div className="text-sm text-slate-500">
-                  <p className="font-mono text-[11px]">CIN: U72200KL2024PTC088930</p>
+                  <p className="text-[10px] text-slate-400 mb-2 uppercase">Corporate Identity Number</p>
+                  <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border-slate-200 p-2 inline-block rounded-sm">
+                    U72200KL2024PTC088930
+                  </p>
                 </div>
               </div>
             </div>
