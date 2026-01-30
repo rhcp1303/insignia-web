@@ -30,49 +30,54 @@ export default function Home() {
   ];
 
   return (
-    /* SNAPPING ENGINE:
-       - h-[calc(100vh-6rem)]: Limits height to the viewable area below the nav.
-       - snap-y snap-mandatory: Enables the gliding lock-on effect.
+    /* WEBSITE FIX:
+       1. 'h-[calc(100vh-6rem)]' stays for desktop to lock the height.
+       2. 'overflow-y-overlay' (if supported) or 'overflow-y-auto' keeps the scrollbar from shifting layout.
     */
-    <main className="h-[calc(100vh-6rem)] overflow-y-auto snap-y snap-mandatory scroll-smooth bg-white selection:bg-blue-100">
+    <main className="flex-grow min-h-screen md:h-[calc(100vh-6rem)] md:overflow-y-auto md:snap-y md:snap-mandatory scroll-smooth bg-white">
 
-      {/* SECTION 0: HERO - Wrapped for snapping */}
-      <section className="h-full snap-start">
-        <Hero />
+      {/* SECTION 0: HERO
+          Using 'max-h-full' on desktop ensures it never exceeds the container.
+      */}
+      <section className="min-h-[85vh] md:h-full md:max-h-full md:snap-start flex items-center overflow-hidden">
+        <div className="w-full h-full">
+           <Hero />
+        </div>
       </section>
 
-      {/* SECTION 1: CORE EXPERTISE */}
-      <section className="h-full snap-start flex flex-col justify-center bg-[#FDFDFD] border-b border-slate-200 overflow-hidden">
+      {/* SECTION 1: CORE EXPERTISE
+          The 'box-border' ensures the padding doesn't push the section height past 100%.
+      */}
+      <section className="min-h-screen md:h-full md:max-h-full md:snap-start flex flex-col justify-center bg-[#FDFDFD] border-b border-slate-200 box-border py-12 md:py-0">
         <div className="max-w-7xl mx-auto px-6 w-full">
-          <div className="mb-14">
-            <p className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight max-w-5xl relative">
-              Our <span className="relative">Core Expertise<span className="absolute bottom-1 left-0 w-full h-2 bg-blue-600/20 -z-10"></span></span> is providing technical excellence at the intersection of theory and implementation.
+          <div className="mb-8 md:mb-14">
+            <p className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight max-w-5xl">
+              Our Core Expertise is providing technical excellence at the intersection of theory and implementation.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {verticals.map((v, i) => (
               <Link
                 href={v.link}
                 key={i}
-                className="relative h-[45vh] group overflow-hidden rounded-xl border border-slate-200 block cursor-pointer bg-slate-900 shadow-sm transition-all duration-500 hover:shadow-2xl hover:border-blue-200"
+                className="relative h-[35vh] md:h-[40vh] lg:h-[45vh] group overflow-hidden rounded-xl border border-slate-200 block bg-slate-900"
               >
                 <img
                   src={v.img}
                   alt={v.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000 ease-in-out"
+                  className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent z-10" />
-                <div className="relative z-20 p-8 h-full flex flex-col justify-end">
-                  <h3 className="text-lg font-bold text-white mb-3 tracking-tight group-hover:text-blue-400 transition-colors">
+                <div className="relative z-20 p-6 md:p-8 h-full flex flex-col justify-end">
+                  <h3 className="text-base md:text-lg font-bold text-white mb-2 tracking-tight group-hover:text-blue-400">
                     {v.title}
                   </h3>
-                  <p className="text-slate-300 text-[13px] leading-relaxed font-normal mb-6 opacity-90">
+                  <p className="text-slate-300 text-[12px] md:text-[13px] leading-relaxed mb-4 opacity-90">
                     {v.desc}
                   </p>
-                  <div className="text-[10px] font-black text-blue-500 uppercase tracking-[0.25em] flex items-center gap-2">
-                    Learn More
-                    <span className="transform group-hover:translate-x-2 transition-transform duration-300">→</span>
+                  <div className="text-[10px] font-black text-blue-500 uppercase tracking-widest flex items-center gap-2">
+                    Learn More <span>→</span>
                   </div>
                 </div>
               </Link>
@@ -82,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: CTA */}
-      <section className="h-full snap-start relative flex flex-col justify-center bg-[#020617] overflow-hidden">
+      <section className="min-h-screen md:h-full md:max-h-full md:snap-start relative flex flex-col justify-center bg-[#020617] py-12 md:py-0">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/hero-bg.png"
@@ -92,13 +97,13 @@ export default function Home() {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-5xl md:text-6xl font-black text-white mb-12 tracking-tighter leading-[1.1]">
+          <h2 className="text-3xl md:text-6xl font-black text-white mb-8 md:mb-12 tracking-tighter leading-tight">
             READY TO DESIGN <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">IMPLEMENTABLE</span> REFORMS?
+            <span className="text-blue-400">IMPLEMENTABLE</span> REFORMS?
           </h2>
           <Link
             href="/work"
-            className="inline-block bg-white text-slate-950 px-14 py-5 font-black uppercase tracking-[0.2em] text-xs hover:bg-blue-600 hover:text-white transition-all shadow-xl"
+            className="inline-block bg-white text-slate-950 px-8 md:px-14 py-4 md:py-5 font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-blue-600 hover:text-white transition-all shadow-xl"
           >
             Explore our research
           </Link>
