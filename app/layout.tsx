@@ -126,7 +126,7 @@ export default function RootLayout({
             </div>
 
             <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em]">
-              © 2026 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
+              © 2024 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
             </div>
           </div>
         </footer>
