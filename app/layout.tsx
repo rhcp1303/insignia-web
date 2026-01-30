@@ -23,9 +23,9 @@ export default function RootLayout({
         <nav className="border-b border-slate-100 sticky top-0 bg-white z-50 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-between">
 
-            {/* LOGO AREA - Optimized for Mobile Viewport */}
-            <Link href="/" className="relative flex items-center h-full w-[160px] md:w-[350px] overflow-hidden">
-              <div className="relative h-full w-full transform scale-[1.4] md:scale-[2.2] origin-left transition-transform">
+            {/* LOGO AREA - Scale adjusted for mobile to prevent crowding */}
+            <Link href="/" className="relative flex items-center h-full w-[140px] md:w-[350px] overflow-hidden">
+              <div className="relative h-full w-full transform scale-[1.3] md:scale-[2.2] origin-left">
                 <Image
                   src="/images/logo.png"
                   alt="Insignia Policy Research"
@@ -33,7 +33,6 @@ export default function RootLayout({
                   style={{
                     objectFit: 'contain',
                     objectPosition: 'left center',
-                    filter: 'contrast(1.1) brightness(1.05)',
                     mixBlendMode: 'multiply'
                   }}
                   priority
@@ -41,7 +40,7 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* NAV LINKS - Desktop */}
+            {/* DESKTOP NAV LINKS (Hidden on Mobile) */}
             <div className="hidden lg:flex items-center gap-8 text-[11px] font-black tracking-widest text-slate-600 relative z-10">
               <Link href="/about-us" className="hover:text-blue-900 transition-colors uppercase">About Us</Link>
               <Link href="/what-we-do" className="hover:text-blue-900 transition-colors uppercase">What We Do</Link>
@@ -55,11 +54,13 @@ export default function RootLayout({
               </Link>
             </div>
 
-            {/* MOBILE MENU BUTTON (Visible only on Mobile) */}
-            <div className="lg:hidden">
+            {/* MOBILE NAVIGATION (Visible only on Mobile) */}
+            <div className="lg:hidden flex items-center gap-3">
+              <Link href="/what-we-do" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500">Services</Link>
+              <Link href="/who-we-are" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500">Team</Link>
               <Link
                 href="/contact-us"
-                className="bg-blue-900 text-white px-4 py-2 text-[10px] font-bold rounded-sm uppercase tracking-wider"
+                className="bg-blue-900 text-white px-3 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider"
               >
                 Contact
               </Link>
@@ -67,7 +68,7 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* MAIN CONTENT - Added min-h-dvh for better mobile height handling */}
+        {/* MAIN CONTENT */}
         <main className="flex-grow min-h-dvh">
           {children}
         </main>
@@ -95,7 +96,7 @@ export default function RootLayout({
 
               {/* Office Column */}
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-4 md:mb-6 uppercase tracking-widest">Connect</h4>
+                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Connect</h4>
                 <address className="not-italic text-sm text-slate-500 space-y-4">
                   <div>
                     <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Registered Office</p>
@@ -114,7 +115,7 @@ export default function RootLayout({
 
               {/* Corporate Column */}
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-4 md:mb-6 uppercase tracking-widest">Identification</h4>
+                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Identification</h4>
                 <div className="text-sm text-slate-500">
                   <p className="text-[10px] text-slate-400 mb-2 uppercase">Corporate Identity Number</p>
                   <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border-slate-200 p-2 inline-block rounded-sm">
@@ -124,7 +125,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.3em]">
+            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em]">
               © 2026 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
             </div>
           </div>
