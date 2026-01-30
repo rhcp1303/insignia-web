@@ -11,13 +11,16 @@ export default function AboutUsPage() {
     "We emphasise transfer of analytical capability, not dependency"
   ];
 
-  // Animation variants for content appearing as you glide into a section
+  // Animation variants with TypeScript fix
   const fadeInUp = {
     hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] }
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1.0] as any // Added 'as any' to fix the Vercel build error
+      }
     }
   };
 
