@@ -40,7 +40,7 @@ export default function RootLayout({
               </div>
             </Link>
 
-            {/* DESKTOP NAV LINKS (Hidden on Mobile) */}
+            {/* DESKTOP NAV LINKS (Visible on Laptop) */}
             <div className="hidden lg:flex items-center gap-8 text-[11px] font-black tracking-widest text-slate-600 relative z-10">
               <Link href="/about-us" className="hover:text-blue-900 transition-colors uppercase">About Us</Link>
               <Link href="/what-we-do" className="hover:text-blue-900 transition-colors uppercase">What We Do</Link>
@@ -57,10 +57,10 @@ export default function RootLayout({
             {/* MOBILE NAVIGATION - Complete & Scrollable */}
             <div className="lg:hidden flex items-center gap-3 overflow-hidden">
               <div className="flex items-center gap-4 overflow-x-auto no-scrollbar py-2 border-r border-slate-100 pr-3">
-                <Link href="/about-us" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">About</Link>
+                <Link href="/about-us" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">About Us</Link>
                 <Link href="/what-we-do" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">What We Do</Link>
                 <Link href="/who-we-are" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">Who We Are</Link>
-                <Link href="/work" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">Work</Link>
+                <Link href="/work" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">Our Work</Link>
               </div>
               <Link
                 href="/contact-us"
@@ -72,12 +72,10 @@ export default function RootLayout({
           </div>
         </nav>
 
-        {/* MAIN CONTENT */}
         <main className="flex-grow min-h-dvh">
           {children}
         </main>
 
-        {/* GLOBAL FOOTER */}
         <footer className="bg-slate-50 border-t border-slate-200 py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
@@ -98,7 +96,6 @@ export default function RootLayout({
                 </p>
               </div>
 
-              {/* Office Column */}
               <div>
                 <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Connect</h4>
                 <address className="not-italic text-sm text-slate-500 space-y-4">
@@ -117,9 +114,23 @@ export default function RootLayout({
                 </address>
               </div>
 
-              {/* Corporate Column */}
               <div>
                 <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Identification</h4>
                 <div className="text-sm text-slate-500">
                   <p className="text-[10px] text-slate-400 mb-2 uppercase">Corporate Identity Number</p>
-                  <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border
+                  <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border-slate-200 p-2 inline-block rounded-sm">
+                    U72200KL2024PTC088930
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em]">
+              © 2026 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
+            </div>
+          </div>
+        </footer>
+      </body>
+    </html>
+  );
+}
