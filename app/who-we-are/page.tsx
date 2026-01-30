@@ -1,4 +1,4 @@
-"use client"; // Required for the clickable toggle to work
+"use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
 
@@ -27,7 +27,7 @@ export default function WhoWeArePage() {
       id: 2,
       name: "Ammu Suresh",
       role: "Director",
-      image: "/images/team/Ammu.jpeg", // Ensure this image path is correct
+      image: "/images/team/Ammu.jpeg",
       bio: "Ammu Suresh is a Director at Insignia Policy Research, where she leads the organisation’s legal and regulatory work. A lawyer by training, she holds a B.A. LL.B. from Delhi University and a B.Sc. (Chemistry Honours) from St. Stephen’s College.\n\nBefore joining Insignia, Ammu practiced law at the Supreme Court of India and the Customs, Excise and Service Tax Appellate Tribunal (CESTAT), specialising in regulatory, tax, and appellate matters. She brings this experience to Insignia’s engagements with state governments, advising on legal strategy, regulatory design, and the statutory dimensions of power-sector and fiscal reforms.",
       bullets: [
         "Legal & Regulatory Affairs Lead",
@@ -79,7 +79,7 @@ export default function WhoWeArePage() {
       id: 6,
       name: "Ashish Ranjan",
       role: "Affiliate / Infrastructure Specialist",
-      image: "/images/team/Ashish.jpeg", // Ensure this image path is correct
+      image: "/images/team/Ashish.jpeg",
       bio: "Ashish Ranjan is an infrastructure and development professional with extensive experience in the sustainability domain through ADB projects across India and South Asia. He brings strong technical and managerial foundations to the team, currently serving as National Head of Projects at Maccaferri, with prior roles at Tata Steel and Bechtel contributing to deep expertise in large-scale project delivery.\n\nAshish is recognized for excellence in risk management, policy support, and driving measurable development impact within government systems and externally funded project frameworks. He is known for navigating complex multi-stakeholder environments in infrastructure, sustainability, and public-sector engagements.",
       bullets: [
         "National Head of Projects, Maccaferri",
@@ -91,70 +91,83 @@ export default function WhoWeArePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white pb-20">
+    <div className="min-h-screen bg-white pb-24">
       <section className="bg-slate-50 py-16 border-b border-slate-100 mb-12">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto px-6">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-2 uppercase tracking-tighter text-center">Who We Are</h1>
           <p className="text-slate-500 text-center font-medium uppercase tracking-[0.2em] text-xs">Our Core Team & Affiliates</p>
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-6 space-y-6">
-        {members.map((member) => (
-          <div
-            key={member.id}
-            className="border border-slate-200 rounded-sm overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow"
-          >
-            {/* COLLAPSED HEADER */}
-            <div
-              className="flex items-center p-6 cursor-pointer select-none"
-              onClick={() => toggleBio(member.id)}
-            >
-              <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 mr-6 border border-slate-200">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {members.map((member) => (
+            <div key={member.id} className="flex flex-col">
+              <div
+                className="relative aspect-square mb-4 overflow-hidden bg-slate-100 cursor-pointer group border border-slate-200"
+                onClick={() => toggleBio(member.id)}
+              >
                 <Image
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
-              <div className="flex-grow">
-                <h2 className="text-xl font-bold text-slate-900">{member.name}</h2>
-                <p className="text-blue-900 font-bold uppercase tracking-widest text-[10px]">{member.role}</p>
-              </div>
-              <div className="text-slate-400">
-                <span className="text-2xl font-light">
-                  {expandedId === member.id ? '−' : '+'}
-                </span>
-              </div>
-            </div>
 
-            {/* EXPANDABLE CONTENT */}
-            <div
-              className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                expandedId === member.id ? 'max-h-[2000px] border-t border-slate-100' : 'max-h-0'
-              }`}
-            >
-              <div className="p-8 bg-slate-50/50">
-                <div className="flex flex-col md:flex-row gap-8">
-                  <div className="md:w-full">
-                    <p className="text-slate-700 leading-relaxed whitespace-pre-line mb-8">
-                      {member.bio}
-                    </p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {member.bullets.map((bullet, idx) => (
-                        <div key={idx} className="flex items-center gap-3 bg-white p-3 border border-slate-200 rounded-sm">
-                          <span className="w-1.5 h-1.5 bg-blue-900 rounded-full" />
-                          <span className="text-[11px] font-bold text-slate-500 uppercase tracking-tight">{bullet}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div className="text-center md:text-left">
+                <h2 className="text-lg font-bold text-slate-900 leading-tight mb-1">{member.name}</h2>
+                <p className="text-blue-900 font-bold uppercase tracking-widest text-[9px] mb-3">
+                  {member.role}
+                </p>
+                <button
+                  onClick={() => toggleBio(member.id)}
+                  className="text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-blue-900 transition-colors"
+                >
+                  Read Bio +
+                </button>
               </div>
+
+              {/* MODAL DRAWER - CLOSES ON BACKGROUND CLICK */}
+              {expandedId === member.id && (
+                <div
+                  className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm cursor-pointer animate-in fade-in duration-300"
+                  onClick={() => setExpandedId(null)}
+                >
+                   <div
+                    className="bg-white w-full max-w-3xl max-h-[85vh] overflow-y-auto p-8 md:p-12 relative shadow-2xl rounded-sm cursor-default"
+                    onClick={(e) => e.stopPropagation()}
+                   >
+                      <div className="flex flex-col md:flex-row gap-8">
+                        <div className="md:w-1/3 shrink-0">
+                          <div className="relative aspect-square w-full mb-6 border border-slate-100">
+                            <Image src={member.image} alt={member.name} fill className="object-cover" />
+                          </div>
+                          <div className="space-y-2">
+                            {member.bullets.map((bullet, idx) => (
+                              <div key={idx} className="flex items-start gap-2 bg-slate-50 p-2 border border-slate-100">
+                                <span className="w-1.5 h-1.5 bg-blue-900 rounded-full mt-1.5 shrink-0" />
+                                <span className="text-[9px] font-bold text-slate-600 uppercase leading-tight">{bullet}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="md:w-2/3">
+                          <h2 className="text-3xl font-bold text-slate-900 leading-none">{member.name}</h2>
+                          <div className="h-1 w-10 bg-blue-900 my-4"></div>
+                          <p className="text-blue-900 font-bold uppercase tracking-widest text-xs mb-4">{member.role}</p>
+                          <p className="text-slate-600 text-[15px] leading-relaxed whitespace-pre-line">
+                            {member.bio}
+                          </p>
+                        </div>
+                      </div>
+                   </div>
+                </div>
+              )}
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
