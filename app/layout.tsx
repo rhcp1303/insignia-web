@@ -97,16 +97,16 @@ export default function RootLayout({
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Connect</h4>
+                <h4 className="font-bold text-slate-900 text-xs mb-6  tracking-widest">Connect</h4>
                 <address className="not-italic text-sm text-slate-500 space-y-4">
                   <div>
-                    <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Registered Office</p>
+                    <p className="font-bold text-slate-700 text-[10px]  tracking-wider mb-1">Registered Office</p>
                     <p>102, 11/160A, VKV Lane, Chembumukku,</p>
                     <p>Vazhakkala, Kakkanad, Ernakulam,</p>
                     <p>Kerala, India 682030</p>
                   </div>
                   <div>
-                    <p className="font-bold text-slate-700 text-[10px] uppercase tracking-wider mb-1">Email</p>
+                    <p className="font-bold text-slate-700 text-[10px]  tracking-wider mb-1">Email</p>
                     <a href="mailto:enquiry@iprglobal.com" className="text-blue-900 hover:text-black transition-colors font-medium">
                       enquiry@iprglobal.com
                     </a>
@@ -115,9 +115,9 @@ export default function RootLayout({
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Identification</h4>
+                <h4 className="font-bold text-slate-900 text-xs mb-6  tracking-widest">Identification</h4>
                 <div className="text-sm text-slate-500">
-                  <p className="text-[10px] text-slate-400 mb-2 uppercase">Corporate Identity Number</p>
+                  <p className="text-[10px] text-slate-400 mb-2 ">Corporate Identity Number</p>
                   <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border-slate-200 p-2 inline-block rounded-sm">
                     U72200KL2024PTC088930
                   </p>
@@ -125,7 +125,7 @@ export default function RootLayout({
               </div>
             </div>
 
-            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em]">
+            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 tracking-[0.3em]">
               © 2024 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
             </div>
           </div>

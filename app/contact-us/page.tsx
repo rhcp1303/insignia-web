@@ -23,7 +23,7 @@ export default function ContactUs() {
                       <span className="text-blue-900 text-lg">✉</span>
                     </div>
                     <div>
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Email Address</p>
+                      <p className="text-[10px] font-bold text-slate-400 tracking-widest mb-1">Email Address</p>
                       <a href="mailto:enquiry@iprglobal.com" className="text-slate-900 font-semibold hover:text-blue-900 transition-colors">
                         enquiry@iprglobal.com
                       </a>
@@ -47,7 +47,7 @@ export default function ContactUs() {
               </div>
 
               <div className="pt-8 border-t border-slate-100">
-                <p className="text-[10px] text-slate-400 uppercase tracking-widest mb-2">Corporate Identity</p>
+                <p className="text-[10px] text-slate-400  tracking-widest mb-2">Corporate Identity</p>
                 <p className="font-mono text-[10px] text-slate-500">CIN: U72200KL2024PTC088930</p>
               </div>
             </div>
