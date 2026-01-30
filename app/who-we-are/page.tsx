@@ -25,6 +25,19 @@ export default function WhoWeArePage() {
     },
     {
       id: 2,
+      name: "Ammu Suresh",
+      role: "Director",
+      image: "/images/team/Ammu.jpeg", // Ensure this image path is correct
+      bio: "Ammu Suresh is a Director at Insignia Policy Research, where she leads the organisation’s legal and regulatory work. A lawyer by training, she holds a B.A. LL.B. from Delhi University and a B.Sc. (Chemistry Honours) from St. Stephen’s College.\n\nBefore joining Insignia, Ammu practiced law at the Supreme Court of India and the Customs, Excise and Service Tax Appellate Tribunal (CESTAT), specialising in regulatory, tax, and appellate matters. She brings this experience to Insignia’s engagements with state governments, advising on legal strategy, regulatory design, and the statutory dimensions of power-sector and fiscal reforms.",
+      bullets: [
+        "Legal & Regulatory Affairs Lead",
+        "Advocate, Supreme Court of India (Former)",
+        "B.A. LL.B., Delhi University",
+        "B.Sc. (Hons) Chemistry, St. Stephen's College"
+      ]
+    },
+    {
+      id: 3,
       name: "Megha Jacob",
       role: "Affiliate / Research Specialist",
       image: "/images/team/Megha.jpeg",
@@ -37,7 +50,7 @@ export default function WhoWeArePage() {
       ]
     },
     {
-      id: 3,
+      id: 4,
       name: "Prof. Naveen Joseph Thomas",
       role: "Affiliate / Industrial Policy Specialist",
       image: "/images/team/Naveen.jpeg",
@@ -47,6 +60,32 @@ export default function WhoWeArePage() {
         "Vice Dean, Jindal School of Government and Public Policy",
         "Industrial Organisation Expert",
         "M.Sc. TERI SAS & B.Sc. St. Stephen's College"
+      ]
+    },
+    {
+      id: 5,
+      name: "Navneeraj Sharma",
+      role: "Senior Visiting Fellow",
+      image: "/images/team/Navneeraj.jpeg",
+      bio: "Navneeraj Sharma is a Senior Visiting Fellow at Insignia Policy Research, advising the organisation on energy economics, power-sector reform, and India’s broader green transition agenda. With academic training in both economics and electrical engineering—from the Delhi School of Economics and Punjab Engineering College—he brings a distinctive blend of analytical and technical expertise to questions of how India can build a cleaner, more efficient, and financially sustainable power system.\n\nAs an energy economist, Navneeraj works on electricity market design, renewable-energy integration, utility finances, and the political economy of power-sector reforms. His research and advisory engagements span tariff rationalisation, subsidy redesign, grid readiness for renewables, and the fiscal implications of decarbonisation pathways.",
+      bullets: [
+        "Expert in Energy Economics & Power Sector Reform",
+        "Delhi School of Economics Alumnus",
+        "Specialist in Renewable Energy Integration",
+        "Electrical Engineering & Economics Background"
+      ]
+    },
+    {
+      id: 6,
+      name: "Ashish Ranjan",
+      role: "Affiliate / Infrastructure Specialist",
+      image: "/images/team/Ashish.jpeg", // Ensure this image path is correct
+      bio: "Ashish Ranjan is an infrastructure and development professional with extensive experience in the sustainability domain through ADB projects across India and South Asia. He brings strong technical and managerial foundations to the team, currently serving as National Head of Projects at Maccaferri, with prior roles at Tata Steel and Bechtel contributing to deep expertise in large-scale project delivery.\n\nAshish is recognized for excellence in risk management, policy support, and driving measurable development impact within government systems and externally funded project frameworks. He is known for navigating complex multi-stakeholder environments in infrastructure, sustainability, and public-sector engagements.",
+      bullets: [
+        "National Head of Projects, Maccaferri",
+        "Sustainability Specialist (ADB Projects)",
+        "MBA NICMAR & Civil Engineering BIT Mesra",
+        "Expert in Risk Management & Infrastructure"
       ]
     }
   ];
