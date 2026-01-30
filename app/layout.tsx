@@ -21,11 +21,11 @@ export default function RootLayout({
       <body className={`${inter.className} bg-white text-slate-900 flex flex-col min-h-screen`}>
         {/* NAVIGATION BAR */}
         <nav className="border-b border-slate-100 sticky top-0 bg-white z-50 shadow-sm">
-          <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 h-20 md:h-24 flex items-center justify-between gap-4">
 
-            {/* LOGO AREA - Scale adjusted for mobile to prevent crowding */}
-            <Link href="/" className="relative flex items-center h-full w-[140px] md:w-[350px] overflow-hidden">
-              <div className="relative h-full w-full transform scale-[1.3] md:scale-[2.2] origin-left">
+            {/* LOGO AREA */}
+            <Link href="/" className="relative flex items-center h-full w-[120px] md:w-[350px] shrink-0 overflow-hidden">
+              <div className="relative h-full w-full transform scale-[1.2] md:scale-[2.2] origin-left">
                 <Image
                   src="/images/logo.png"
                   alt="Insignia Policy Research"
@@ -54,13 +54,17 @@ export default function RootLayout({
               </Link>
             </div>
 
-            {/* MOBILE NAVIGATION (Visible only on Mobile) */}
-            <div className="lg:hidden flex items-center gap-3">
-              <Link href="/what-we-do" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500">Services</Link>
-              <Link href="/who-we-are" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500">Team</Link>
+            {/* MOBILE NAVIGATION - Complete & Scrollable */}
+            <div className="lg:hidden flex items-center gap-3 overflow-hidden">
+              <div className="flex items-center gap-4 overflow-x-auto no-scrollbar py-2 border-r border-slate-100 pr-3">
+                <Link href="/about-us" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">About</Link>
+                <Link href="/what-we-do" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">What We Do</Link>
+                <Link href="/who-we-are" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">Who We Are</Link>
+                <Link href="/work" className="text-[9px] font-bold uppercase tracking-tighter text-slate-500 whitespace-nowrap">Work</Link>
+              </div>
               <Link
                 href="/contact-us"
-                className="bg-blue-900 text-white px-3 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider"
+                className="bg-blue-900 text-white px-3 py-2 rounded-sm text-[10px] font-bold uppercase tracking-wider shrink-0"
               >
                 Contact
               </Link>
@@ -118,19 +122,4 @@ export default function RootLayout({
                 <h4 className="font-bold text-slate-900 text-xs mb-6 uppercase tracking-widest">Identification</h4>
                 <div className="text-sm text-slate-500">
                   <p className="text-[10px] text-slate-400 mb-2 uppercase">Corporate Identity Number</p>
-                  <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border-slate-200 p-2 inline-block rounded-sm">
-                    U72200KL2024PTC088930
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-12 md:mt-16 pt-8 border-t border-slate-200 text-center text-[10px] text-slate-400 uppercase tracking-[0.3em]">
-              © 2026 Insignia Policy Research Pvt. Ltd. All Rights Reserved.
-            </div>
-          </div>
-        </footer>
-      </body>
-    </html>
-  );
-}
+                  <p className="font-mono text-[11px] font-semibold text-slate-700 bg-white border border
